@@ -5,6 +5,8 @@ Frameworks used:
 - Jade
 - Sass
 - Javascript
+- Bower
+- Boostrap
 
 Purpose of the page:
 - demo hand made product
