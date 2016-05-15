@@ -3,14 +3,15 @@ doctype html
 html(lang="en")
   head
     meta(charset="utf-8")
-    title Kosa Judit
+    title Judit Kosa
     meta(name="description", content="")
     meta(name="author", content="Ladislav Szolik")
     meta(name="viewport", content="width=device-width, initial-scale=1")    
     link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Lobster")
-    link(rel="stylesheet", href="css/bootstrap.min.css")
+    link(rel="stylesheet", href="css/bootstrap.min.css")    
     link(rel="stylesheet", href="css/style.css")    
-    
+    link(rel="stylesheet", href="bower_components/photoswipe/dist/photoswipe.css")
+    link(rel="stylesheet", href="bower_components/photoswipe/dist/default-skin/default-skin.css")
    
   body
     header 
@@ -25,28 +26,38 @@ html(lang="en")
       div.main
         ul.gallery
           li
-            div
-              img.img-circle.work-item(src="images/gallery_img.jpg")
+            div#btn1              
+              img.img-circle.work-item(src="images/gallery/gallery_img.jpg")
           li
-            div
-              img.img-circle.work-item(src="images/gallery_img.jpg") 
+            div#btn2
+              img.img-circle.work-item(src="images/gallery/gallery_img.jpg") 
           li
-            div
-              img.img-circle.work-item(src="images/gallery_img.jpg")
+            div#btn3
+              img.img-circle.work-item(src="images/gallery/gallery_img.jpg")
           li
-            div
-              img.img-circle.work-item(src="images/gallery_img.jpg")
+            div#btn4
+              img.img-circle.work-item(src="images/gallery/gallery_img.jpg")
           li
-            div
-              img.img-circle.work-item(src="images/gallery_img.jpg") 
+            div#btn5
+              img.img-circle.work-item(src="images/gallery/gallery_img.jpg") 
           li
-            div
-              img.img-circle.work-item(src="images/gallery_img.jpg")
+            div#btn6
+              img.img-circle.work-item(src="images/gallery/gallery_img.jpg")
             
         div.load-more
           img(src="images/load_more.svg")
     div.contact
       h1 "…jelezz ha szeretnél Te is egyet."
       a(href="mailto:jucuska10@gmail.com") jucuska10@gmail.com
+      
+    include photoswipe.html
+    
+    script(src="bower_components/photoswipe/dist/photoswipe.min.js")
+
+    script(src="bower_components/photoswipe/dist/photoswipe-ui-default.min.js")
+    
+    script(src="app/app.js")
+      
+
               
               
