@@ -7,116 +7,16 @@
     <meta name="author" content="Ladislav Szolik">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Norican">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="bower_components/photoswipe/dist/photoswipe.css">
-    <link rel="stylesheet" href="bower_components/photoswipe/dist/default-skin/default-skin.css">
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
   </head>
-  <body>
-    <header> 
-      <div class="hero-img-container">  
-        <h1 class="heroText">"Judit <br/> imád marcipán figurákat <br/> készíteni…"</h1><img>
-      </div>
-    </header>
-    <div class="portfolio">
-      <div class="portfolio-title">
-        <h1>"...nézd meg a munkáit..."</h1>
-      </div>
-      <div class="main">
-        <ul class="gallery">
-          <li>
-            <div id="btn1">             <img src="images/gallery/img_10.jpeg" class="img-circle work-item"></div>
-          </li>
-          <li>
-            <div id="btn2"><img src="images/gallery/img_20.jpeg" class="img-circle work-item"></div>
-          </li>
-          <li>
-            <div id="btn3"><img src="images/gallery/img_30.jpeg" class="img-circle work-item"></div>
-          </li>
-          <li>
-            <div id="btn4"><img src="images/gallery/img_40.jpeg" class="img-circle work-item"></div>
-          </li>
-          <li>
-            <div id="btn5"><img src="images/gallery/img_50.jpeg" class="img-circle work-item"></div>
-          </li>
-          <li>
-            <div id="btn6"><img src="images/gallery/img_60.jpeg" class="img-circle work-item"></div>
-          </li>
-        </ul>
-        <div class="load-more"><img src="images/load_more.svg"></div>
-      </div>
-    </div>
-    <div class="contact">
-      <h1>"…jelezz ha szeretnél Te is egyet."</h1><a href="mailto:jucuska10@gmail.com">jucuska10@gmail.com</a>
-    </div>    <!-- Root element of PhotoSwipe. Must have class pswp. -->
-    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-        <!-- Background of PhotoSwipe.
-             It's a separate element as animating opacity is faster than rgba(). -->
-        <div class="pswp__bg"></div>
-
-        <!-- Slides wrapper with overflow:hidden. -->
-        <div class="pswp__scroll-wrap">
-
-            <!-- Container that holds slides.
-                PhotoSwipe keeps only 3 of them in the DOM to save memory.
-                Don't modify these 3 pswp__item elements, data is added later on. -->
-            <div class="pswp__container">
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-            </div>
-
-            <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-            <div class="pswp__ui pswp__ui--hidden">
-
-                <div class="pswp__top-bar">
-
-                    <!--  Controls are self-explanatory. Order can be changed. -->
-
-                    <div class="pswp__counter"></div>
-
-                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                    <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                    <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                    <!-- element will get class pswp__preloader--active when preloader is running -->
-                    <div class="pswp__preloader">
-                        <div class="pswp__preloader__icn">
-                          <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                    <div class="pswp__share-tooltip"></div>
-                </div>
-
-                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-                </button>
-
-                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-                </button>
-
-                <div class="pswp__caption">
-                    <div class="pswp__caption__center"></div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <script src="bower_components/photoswipe/dist/photoswipe.min.js"></script>
-    <script src="bower_components/photoswipe/dist/photoswipe-ui-default.min.js"></script>
+  <body ng-app="marziApp"> 
+    <div class="ng-view">   </div>
     <script src="app/app.js"></script>
   </body>
 </html>

@@ -8,54 +8,16 @@ html(lang="en")
     meta(name="author", content="Ladislav Szolik")
     meta(name="viewport", content="width=device-width, initial-scale=1")    
     link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Lobster")
+    link(rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans")
+    link(rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Norican")  
     link(rel="stylesheet", href="css/bootstrap.min.css")    
     link(rel="stylesheet", href="css/style.css")    
-    link(rel="stylesheet", href="bower_components/photoswipe/dist/photoswipe.css")
-    link(rel="stylesheet", href="bower_components/photoswipe/dist/default-skin/default-skin.css")
+    script(src="bower_components/angular/angular.js")
+    script(src="bower_components/angular-route/angular-route.min.js")
+    script(src="bower_components/jquery/dist/jquery.min.js")
    
-  body
-    header 
-      div.hero-img-container   
-        h1.heroText "Judit <br/> imád marcipán figurákat <br/> készíteni…"
-        
-        img
-    
-    div.portfolio
-      div.portfolio-title
-        h1 "...nézd meg a munkáit..."
-      div.main
-        ul.gallery
-          li
-            div#btn1              
-              img.img-circle.work-item(src="images/gallery/img_10.jpeg")
-          li
-            div#btn2
-              img.img-circle.work-item(src="images/gallery/img_20.jpeg") 
-          li
-            div#btn3
-              img.img-circle.work-item(src="images/gallery/img_30.jpeg")
-          li
-            div#btn4
-              img.img-circle.work-item(src="images/gallery/img_40.jpeg")
-          li
-            div#btn5
-              img.img-circle.work-item(src="images/gallery/img_50.jpeg") 
-          li
-            div#btn6
-              img.img-circle.work-item(src="images/gallery/img_60.jpeg")
-            
-        div.load-more
-          img(src="images/load_more.svg")
-    div.contact
-      h1 "…jelezz ha szeretnél Te is egyet."
-      a(href="mailto:jucuska10@gmail.com") jucuska10@gmail.com
-      
-    include photoswipe.html
-    
-    script(src="bower_components/photoswipe/dist/photoswipe.min.js")
-
-    script(src="bower_components/photoswipe/dist/photoswipe-ui-default.min.js")
-    
+  body(ng-app='marziApp')  
+    div.ng-view    
     script(src="app/app.js")
       
 

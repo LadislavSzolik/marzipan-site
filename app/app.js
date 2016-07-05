@@ -1,142 +1,68 @@
-var openPhotoSwipe1 = function() {
-    var pswpElement = document.querySelectorAll('.pswp')[0];
+var marziApp = angular.module('marziApp', ['ngRoute']);
 
-    // build items array
-    var items = [
-        {
-            src: '../images/gallery/img_10.jpeg',
-            w: 480,
-            h: 480
+marziApp.config(['$routeProvider', function($routeProvider){
+  $routeProvider.when('/initpage', {
+    templateUrl: 'initpage.html'
+  })
+  .when('/home', {
+    templateUrl: 'home.html'
+  }).otherwise({
+    redirectTo: '/initpage'
+  });
+}]);
+
+marziApp.controller('MainController', ['$scope', '$http', function($scope, $http) {
+  $http({method: 'GET', url: '../galleryData.json'}).success(function(data)
+  {
+    $scope.galleryItems = data;
+  });
+
+  var pContainerHeight = $('.group1').height();
+
+  $(window).scroll(function(){
+
+    var wScroll = $(this).scrollTop();
+
+    if (wScroll <= pContainerHeight) {
+
+      $('.window-and-wall').css({
+        'transform' : 'translate(0px, '+ wScroll /20 +'%)'
+      });
+
+      $('.blue-sky').css({
+        'transform' : 'translate(0px, '+ wScroll /20 +'%)'
+      });
+
+      $('.bird-and-tree').css({
+        'transform' : 'translate(0px, '+ wScroll /2 +'%)'
+      });
+
+      $('.film-canvas').css({
+        'transform' : 'translate(0px, '+ wScroll /80 +'%)'
+      });
+
+
+    }
+  });
+}]);
+
+
+marziApp.directive('rotatet', ['$timeout', function ($timeout) {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+          var rotateDegrees = 1;
+          var loop = $timeout(function rotateImg() {
+            var r = 'rotate(' + rotateDegrees + 'deg)';
+            element.css({
+                '-moz-transform': r,
+                '-webkit-transform': r,
+                '-o-transform': r,
+                '-ms-transform': r
+            });
+            rotateDegrees++;
+            loop = $timeout(rotateImg, 50);
+          },50);
         }
-    ];
-
-    var options = {
-        history: false,
-        focus: false,
-        showAnimationDuration: 0,
-        hideAnimationDuration: 0
-    };
-
-    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-    gallery.init();
-};
-
-var openPhotoSwipe2 = function() {
-    var pswpElement = document.querySelectorAll('.pswp')[0];
-
-    // build items array
-    var items = [
-        {
-            src: '../images/gallery/img_20.jpeg',
-            w: 480,
-            h: 480
-        }
-    ];
-
-    var options = {
-        history: false,
-        focus: false,
-        showAnimationDuration: 0,
-        hideAnimationDuration: 0
-    };
-
-    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-    gallery.init();
-};
-
-var openPhotoSwipe3 = function() {
-    var pswpElement = document.querySelectorAll('.pswp')[0];
-
-    // build items array
-    var items = [
-        {
-            src: '../images/gallery/img_30.jpeg',
-            w: 480,
-            h: 480
-        }
-    ];
-
-    var options = {
-        history: false,
-        focus: false,
-        showAnimationDuration: 0,
-        hideAnimationDuration: 0
-    };
-
-    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-    gallery.init();
-};
-
-var openPhotoSwipe4 = function() {
-    var pswpElement = document.querySelectorAll('.pswp')[0];
-
-    // build items array
-    var items = [
-        {
-            src: '../images/gallery/img_40.jpeg',
-            w: 480,
-            h: 480
-        }
-    ];
-
-    var options = {
-        history: false,
-        focus: false,
-        showAnimationDuration: 0,
-        hideAnimationDuration: 0
-    };
-
-    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-    gallery.init();
-};
-
-var openPhotoSwipe5 = function() {
-    var pswpElement = document.querySelectorAll('.pswp')[0];
-
-    // build items array
-    var items = [
-        {
-            src: '../images/gallery/img_50.jpeg',
-            w: 480,
-            h: 480
-        }
-    ];
-
-    var options = {
-        history: false,
-        focus: false,
-        showAnimationDuration: 0,
-        hideAnimationDuration: 0
-    };
-
-    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-    gallery.init();
-};
-
-var openPhotoSwipe6 = function() {
-    var pswpElement = document.querySelectorAll('.pswp')[0];
-    var items = [
-        {
-            src: '../images/gallery/img_60.jpeg',
-            w: 480,
-            h: 480
-        }
-    ];
-
-    var options = {
-        history: false,
-        focus: false,
-        showAnimationDuration: 0,
-        hideAnimationDuration: 0
-    };
-
-    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-    gallery.init();
-};
-
-document.getElementById('btn1').onclick = openPhotoSwipe1;
-document.getElementById('btn2').onclick = openPhotoSwipe2;
-document.getElementById('btn3').onclick = openPhotoSwipe3;
-document.getElementById('btn4').onclick = openPhotoSwipe4;
-document.getElementById('btn5').onclick = openPhotoSwipe5;
-document.getElementById('btn6').onclick = openPhotoSwipe6;
+    }
+}]);
